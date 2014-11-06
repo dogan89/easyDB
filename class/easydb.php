@@ -40,6 +40,49 @@ class easyDB {
 		}
 	}
 	
+	//Select işlemi
+	public function select($prepare, $value = array())
+	{
+		$query=$this->db->prepare($prepare);
+		$query->execute($value);
+		$rows=$query->fetch(PDO::FETCH_ASSOC);
+		return $rows;
+	}
+	
+	//Select all işlemi
+	public function selectAll($prepare, $value = array())
+	{
+		$query=$this->db->prepare($prepare);
+		$query->execute($value);
+		$rows=$query->fetchAll(PDO::FETCH_ASSOC);
+		return $rows;
+	}
+	
+	//Select count işlemi
+	public function rowCount($prepare, $value = array())
+	{
+		$query=$this->db->prepare($prepare);
+		$query->execute($value);
+		$rows=$query->fetch(PDO::FETCH_NUM);
+		return $rows[0];
+	}
+	
+	//Delete işlemi
+	public function delete($prepare, $value = array())
+	{
+		$query=$this->db->prepare($prepare);
+		$query->execute($value);
+		return $query->rowCount();
+	}
+	
+	//Update işlemi
+	public function update($prepare, $value = array())
+	{
+		$query=$this->db->prepare($prepare);
+		$query->execute($value);
+		return $query->rowCount();
+	}
+	
 	//Insert işlemi
 	public function insert($table, $fields = array())
 	{
