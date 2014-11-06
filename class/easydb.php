@@ -83,6 +83,35 @@ class easyDB {
 		return $query->rowCount();
 	}
 	
+	//Hızlı tek veri alma
+	public function findSingle($table, $where = "", $value = array())
+	{
+		$params= $where != "" ? " WHERE ".$where : "";
+		$query=$this->db->prepare("SELECT * FROM ".$table.$params);
+		$query->execute($value);
+		$rows=$query->fetch(PDO::FETCH_ASSOC);
+		return $rows;
+	}
+	
+	//Hızlı tüm veri alma
+	public function findAll($table, $where = "", $value = array())
+	{
+		$params= $where != "" ? " WHERE ".$where : "";
+		$query=$this->db->prepare("SELECT * FROM ".$table.$params);
+		$query->execute($value);
+		$rows=$query->fetchAll(PDO::FETCH_ASSOC);
+		return $rows;
+	}
+	
+	//Hızlı silme
+	public function deleteAll($table, $where = "", $value = array())
+	{
+		$params= $where != "" ? " WHERE ".$where : "";
+		$query=$this->db->prepare("DELETE FROM ".$table.$params);
+		$query->execute($value);
+		return $query->rowCount();
+	}
+	
 	//Insert işlemi
 	public function insert($table, $fields = array())
 	{
