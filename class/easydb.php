@@ -59,7 +59,7 @@ class easyDB {
 	}
 	
 	//Select count işlemi
-	public function rowCount($prepare, $value = array())
+	public function selectCount($prepare, $value = array())
 	{
 		$query=$this->db->prepare($prepare);
 		$query->execute($value);
