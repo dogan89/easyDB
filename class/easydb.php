@@ -41,7 +41,7 @@ class easyDB {
 	}
 	
 	//Select işlemi
-	public function select($prepare, $value = array())
+	public function selectSingle($prepare, $value = array())
 	{
 		$query=$this->db->prepare($prepare);
 		$query->execute($value);
