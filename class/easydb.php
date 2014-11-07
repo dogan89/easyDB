@@ -103,6 +103,16 @@ class easyDB {
 		return $rows;
 	}
 	
+	//Hızlı miktar alma
+	public function findCount($table, $where = "", $value = array())
+	{
+		$params= $where != "" ? " WHERE ".$where : "";
+		$query=$this->db->prepare("SELECT COUNT(*) FROM ".$table.$params);
+		$query->execute($value);
+		$rows=$query->fetch(PDO::FETCH_NUM);
+		return $rows[0];
+	}
+	
 	//Hızlı silme
 	public function deleteAll($table, $where = "", $value = array())
 	{
