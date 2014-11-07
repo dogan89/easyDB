@@ -1,4 +1,16 @@
 <?php
+/**
+ * easyDB for PDO
+ * NOTE: Requires PHP version 5 or later
+ * @author		Dogan ISIKDEMIR
+ * @email		dgn_isikdemir@hotmail.com
+ * @website		http://www.dusyazilim.com/
+ * @facebook	https://www.facebook.com/dogan89
+ * @twitter		https://twitter.com/dogan89
+ * @linkedin	https://tr.linkedin.com/in/dogan89
+ * @github		https://github.com/dogan89
+ */
+
 class easyDB {
 	
 	private $db;
