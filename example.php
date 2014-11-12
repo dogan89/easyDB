@@ -30,11 +30,11 @@ $easydb	= new easyDB($db);
 #SELECT QUERY
 
 //Select example 1
-$userdetails	= $easydb->query("SELECT * FROM users WHERE userid = :userid", array('userid', 12));
+$userdetails	= $easydb->query("SELECT * FROM users WHERE userid = :userid", array('userid' => 12));
 //Select example 2
-$userdetails	= $easydb->selectSingle("SELECT * FROM users WHERE userid = :userid", array('userid', 12));
+$userdetails	= $easydb->selectSingle("SELECT * FROM users WHERE userid = :userid", array('userid' => 12));
 //Select example 3
-$userdetails	= $easydb->findSingle("users", "userid = :userid", array('userid', 12));
+$userdetails	= $easydb->findSingle("users", "userid = :userid", array('userid' => 12));
 
 echo $userdetails["name"];
 echo $userdetails["lastname"];
