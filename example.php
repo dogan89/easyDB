@@ -19,7 +19,20 @@ ini_set("display_errors", 1);
 header('Content-type: text/html; charset=utf-8');
 
 //Database Connection
-$db	= new PDO("mysql:host=localhost;dbname=[dbname];charset=utf8", "[dbusername]", "[dbpass]");
+$dsn		= 'mysql:host=localhost;dbname=[dbname];charset=utf8';
+$dbuser		= '[dbusername]';
+$dbpassword	= '[dbpass]';
+
+try
+{
+	$db	= new PDO($dsn, $dbuser, $dbpassword);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e)
+{
+	echo 'Connection error';
+	exit;
+}
 
 //Easy DB
 require('class/easydb.php');
